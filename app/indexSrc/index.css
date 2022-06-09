@@ -1,0 +1,716 @@
+body,
+html {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #212121;
+    overflow: hidden;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+    outline: none;
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input {
+    background-color: #ffffff20;
+    border-radius: 4px;
+    padding: 2.5px 10px;
+    border-bottom: 2px solid #ffffff30;
+    transition-duration: 0.15s;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.input:focus-within {
+    border-bottom: 2px solid #008eff;
+    background-color: #ffffff10;
+}
+
+.input span {
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #ffffff;
+    margin-right: 5px;
+}
+
+.input input {
+    background: none;
+    font-size: 12px;
+    color: #ffffff;
+    border: none;
+    width: calc(100% - 45px);
+}
+
+.input input::placeholder {
+    color: #ffffff90;
+}
+
+main {
+    width: calc(100%);
+    height: calc(100% );
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #000000c0;
+}
+
+main .title {
+    height: 20px;
+    width: calc(100% - 10px);
+    padding: 5px;
+    background-color: #0c0909;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+main .title p {
+    font-size: 12px;
+    font-weight: 100;
+    color: #ffffff;
+    margin-left: 10px;
+}
+main .bottom{
+    width: calc(100% - 30px);
+    height: calc(100% - 70px);
+    padding: 15px;
+}
+main .bottom .actions{
+    height: 30px;
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: 10px;
+    width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+main .bottom .actions span{
+    font-size: 20px;
+    border-radius: 4px;
+    padding: 5px;
+    color: #ffffff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+main .bottom .actions span:hover{
+    background-color: #ffffff10;
+}
+main .bottom .actions .ln{
+    height: 20px;
+    width: 0.5px;
+    background-color: #ffffff90;
+}
+main .bottom .actions .tab{
+    width: max-content;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #ffffff00;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 4px;
+}
+main .bottom .actions .tab p{
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #ffffff;
+}
+main .bottom .actions .tab:hover{
+    background-color: #ffffff10;
+}
+main .bottom .actions .active{
+    background-color: #ffffff20;
+}
+main .bottom .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: calc(100% - 40px);
+    margin-top: 10px;
+    width: 100%;
+}
+main .bottom .content .fileBased{
+    width: 100%;
+    height: 100%;
+}
+main .bottom .content .pg1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    transition-duration: 0.25s;
+}
+main .bottom .content .pg1 h2{
+    color: #ffffff;
+    font-weight: 400;
+}
+main .bottom .content .pg1 .left , main .bottom .content .pg1 .right{
+    width: 20%;
+    height: 40%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ffffff;
+    transition-duration: 0.15s;
+    margin: 50px;
+    background-color: #ffffff10;
+}
+main .bottom .content .pg1 .left *, main .bottom .content .pg1 .right *{
+    transition-duration: 0.15s;
+}
+main .bottom .content .pg1 .left:hover{
+    background-color: #ffffff20;
+    color: #008eff;
+}
+ main .bottom .content .pg1 .right:hover{
+    background-color: #ffffff20;
+    color: rgb(255, 62, 62);
+}
+main .bottom .content .pg1 span{
+    font-size: 100px;
+    margin: 20px;
+}
+
+
+main .bottom .content .loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.5s;
+    opacity: 0;
+    display: none;
+}
+main .bottom .content .loader .circle {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    opacity: 0;
+    transform: rotate(225deg);
+    animation-iteration-count: infinite;
+    animation-name: orbit;
+    animation-duration: 5.5s;
+}
+
+main .bottom .content .loader .circle:after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(255, 255, 255, .7);
+}
+
+main .bottom .content .loader .circle:nth-child(2) {
+    animation-delay: 240ms;
+}
+
+main .bottom .content .loader .circle:nth-child(3) {
+    animation-delay: 480ms;
+}
+
+main .bottom .content .loader .circle:nth-child(4) {
+    animation-delay: 720ms;
+}
+
+main .bottom .content .loader .circle:nth-child(5) {
+    animation-delay: 960ms;
+}
+
+main .bottom .content .loader .bg {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    margin-left: -16px;
+    margin-top: -16px;
+    border-radius: 13px;
+    background-color: rgba(0, 153, 255, 0.69);
+    animation: bgg 16087ms ease-in alternate infinite;
+}
+main .bottom .content .loader p{
+    margin-top: 100px;
+    color: #fff;
+    font-size: 14px;
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(225deg);
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    7% {
+        transform: rotate(345deg);
+        animation-timing-function: linear;
+    }
+
+    30% {
+        transform: rotate(455deg);
+        animation-timing-function: ease-in-out;
+    }
+
+    39% {
+        transform: rotate(690deg);
+        animation-timing-function: linear;
+    }
+
+    70% {
+        transform: rotate(815deg);
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    75% {
+        transform: rotate(945deg);
+        animation-timing-function: ease-out;
+    }
+
+    76% {
+        transform: rotate(945deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(945deg);
+        opacity: 0;
+    }
+}
+
+main .bottom .content .pg2{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -100px;
+}
+main .bottom .content .pg2 .steps{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    flex-direction: row;
+}
+main .bottom .content .pg2 .steps .step{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+main .bottom .content .pg2 .steps .step .top{
+    background-color: #ffffff;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #008eff;
+    transition-duration: 1s;
+}
+main .bottom .content .pg2 .steps .step p{
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+main .bottom .content .pg2 .sec1{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.25s;
+}
+main .bottom .content .pg2 .sec1 button{
+    background-color: #008eff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+main .bottom .content .pg2 .sec1 span{
+    margin: 10px;
+}
+main .bottom .content .pg2 .sec2{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -50px;
+    display: none;
+}
+main .bottom .content .pg2 .sec2 .fileDisplay{
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    border-radius: 4px;
+    color: #008eff;
+    background-color: #ffffff10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 30px;
+}
+main .bottom .content .pg2 .sec2 .fileDisplay span{
+    font-size: 100px;
+}
+main .bottom .content .pg2 .sec2 .fileDisplay p{
+    color: #fff;
+    font-size: 14px;
+}
+
+main .bottom .content .pg2 .sec2 span{
+    margin-right: 10px;
+}
+main .bottom .content .pg2 .sec2 .choose{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 50%;
+    flex-wrap: wrap;
+}
+main .bottom .content .pg2 .sec2 button{
+    background-color: #008eff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+main .bottom .content .pg2 .sec3{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -50px;
+    display: none;
+}
+main .bottom .content .pg2 .sec3 p{
+    font-size: 18px;
+    color: #fff;
+    margin: 5px;
+}
+main .bottom .content .pg2 .sec3 button{
+    background-color: #008eff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    cursor: pointer;
+}
+main .bottom .content .pg3{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -100px;
+}
+main .bottom .content .pg3 .steps{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    flex-direction: row;
+}
+main .bottom .content .pg3 .steps .step{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+main .bottom .content .pg3 .steps .step .top{
+    background-color: #ffffff;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #008eff;
+    transition-duration: 1s;
+}
+main .bottom .content .pg3 .steps .step p{
+    color: #fff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+main .bottom .content .pg3 .sec1{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.25s;
+}
+main .bottom .content .pg3 .sec1 button{
+    background-color: #008eff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+main .bottom .content .pg3 .sec1 span{
+    margin: 10px;
+}
+main .bottom .content .pg3 .sec2{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -50px;
+    display: none;
+}
+main .bottom .content .pg3 .sec2 .fileDisplay{
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    border-radius: 4px;
+    color: #008eff;
+    background-color: #ffffff10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 30px;
+}
+main .bottom .content .pg3 .sec2 .fileDisplay span{
+    font-size: 100px;
+}
+main .bottom .content .pg3 .sec2 .fileDisplay p{
+    color: #fff;
+    font-size: 14px;
+}
+
+main .bottom .content .pg3 .sec2 span{
+    margin-right: 10px;
+}
+main .bottom .content .pg3 .sec2 .choose{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 50%;
+    flex-wrap: wrap;
+}
+main .bottom .content .pg3 .sec2 button{
+    background-color: #008eff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+main .bottom .content .pg3 .sec3{
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -50px;
+    display: none;
+}
+main .bottom .content .pg3 .sec3 p{
+    font-size: 18px;
+    color: #fff;
+    margin: 5px;
+}
+main .bottom .content .pg3 .sec3 button{
+    background-color: #008eff;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    cursor: pointer;
+}
+
+main .bottom .content .pg4{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    transition-duration: 0.25s;
+    opacity: 0;
+    margin-left: -100px;
+}
+main .bottom .content .pg4 .left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    width: 30%;
+    height: 80%;
+    margin: 5%;
+}
+main .bottom .content .pg4 .right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    width: 30%;
+    height: 80%;
+    margin: 5%;
+}
+main .bottom .content .pg4 .mid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 4px;
+    height: 80%;
+}
+main .bottom .content .pg4 p{
+    color: #ffffff;
+    font-size: 14px;
+    margin: 15px;
+}
+main .bottom .content .pg4 button{
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: #ffffff10;
+    transition-duration: 0.25s;
+    border: none;
+    margin: 10px;
+}
+main .bottom .content .pg4 button:hover{
+    background-color: #ffffff20;
+}
+main .bottom .content .pg4 iframe{
+    padding: 10px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    background-color: #ffffff10;
+    border-radius: 4px;
+}
+
+.pickerBlocker {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000050;
+    display: none;
+}
+.pickerBlocker .picker{
+    min-width: 45vw;
+    height: 70vh;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #212121;
+}
+.pickerBlocker .picker div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: row;
+    color: #ffffff;
+}
+.pickerBlocker .picker .opt{
+    border-radius: 4px;
+    transition-duration: 0.25s;
+}
+.pickerBlocker .picker .opt:hover{
+    background-color: #ffffff07;
+}

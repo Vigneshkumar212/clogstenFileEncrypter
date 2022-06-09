@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clogsten Chat</title>
+    <!--Css-->
+    <link rel="stylesheet" href="./indexSrc/index.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,200,0,200" />
+    <link rel="shortcut icon" href="./assets/logo-small.png" type="image/x-icon">
+</head>
+
+<body>
+    <img src="./assets/BackgroundImage.png" class="bg" alt="">
+    <main>
+        <div class="title">
+            <p>Clogsten Encrypter</p>
+            <p></p>
+        </div>
+        <div class="bottom">
+            <div class="actions">
+                <span class="material-symbols-rounded" id="ChangeWallpaper">
+                    wallpaper
+                    </span>
+                <div class="ln"></div>
+                <div class="tab active" id="FileBased">
+                    <p>File Based</p>
+                </div>
+                <div class="ln"></div>
+                <div class="tab" id="TextBased">
+                    <p>Text Based</p>
+                </div>
+            </div>
+            <div class="content">
+                <div class="fileBased">
+                    <div class="pg1">
+                        <h2>Select a Mode</h2>
+                        <div class="left" id="EncryptFiles">
+                            <span class="material-symbols-rounded">
+                                enhanced_encryption
+                                </span>
+                                <p>Encrypt File</p>
+                        </div>
+                        <div class="right" id="DecryptFiles">
+                            <span class="material-symbols-rounded">
+                                no_encryption
+                                </span>
+                                <p>Decrypt File</p>
+                        </div>
+                    </div>
+                    <div class="pg2">
+                        <div class="steps">
+                            <div class="step">
+                                <div class="top">1</div>
+                                <p>Open File</p>
+                            </div>
+                            <div class="step">
+                                <div class="top">2</div>
+                                <p>Choose Method</p>
+                            </div>
+                            <div class="step">
+                                <div class="top">3</div>
+                                <p>Finish</p>
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <button id="ImportFile">
+                                <span class="material-symbols-rounded">
+                                    open_in_browser
+                                    </span>
+                                Import File
+                            </button>
+                            <p style="color: #fff; margin: 20px;">Or</p>
+                            <button id="OpenHistory">
+                                <span class="material-symbols-rounded">
+                                    history
+                                    </span>
+                                Open From Recents
+                            </button>
+                        </div>
+                        <div class="sec2">
+                            <div class="fileDisplay">
+                                <span class="material-symbols-rounded">
+                                    description
+                                    </span>
+                                <p id="fileName">File Name.fileExt</p>
+                            </div>
+                            <div class="choose">
+                                <button id="encryptAReplace">
+                                    Encrypt And Replace
+                                </button>
+                                <button id="encryptASave">
+                                    Open Path To Encrypt And Save
+                                </button>
+                            </div>
+                        </div>
+                        <div class="sec3">
+                            <p>Enter Encryption Key</p>
+                            <p style="font-size: 10px; margin-bottom: 10px;">Please Note 'Encryption Key' is not Resetable</p>
+                            <div class="input" >
+                                <span class="material-symbols-rounded">
+                                    password
+                                </span>
+                                <input type="password" id="password" placeholder="Encryption Key">
+                            </div>
+                            <button id="finish">Finish</button>
+                        </div>
+                    </div>
+                    <div class="pg3">
+                        <div class="steps">
+                            <div class="step">
+                                <div class="top">1</div>
+                                <p>Open File</p>
+                            </div>
+                            <div class="step">
+                                <div class="top">2</div>
+                                <p>Choose Method</p>
+                            </div>
+                            <div class="step">
+                                <div class="top">3</div>
+                                <p>Finish</p>
+                            </div>
+                        </div>
+                        <div class="sec1">
+                            <button id="ImportFile">
+                                <span class="material-symbols-rounded">
+                                    open_in_browser
+                                    </span>
+                                Import File
+                            </button>
+                            <p style="color: #fff; margin: 20px;">Or</p>
+                            <button id="OpenHistory">
+                                <span class="material-symbols-rounded">
+                                    history
+                                    </span>
+                                Open From Recents
+                            </button>
+                        </div>
+                        <div class="sec2">
+                            <div class="fileDisplay">
+                                <span class="material-symbols-rounded">
+                                    description
+                                    </span>
+                                <p id="fileName">File Name.fileExt</p>
+                            </div>
+                            <div class="choose">
+                                <button id="encryptAReplace">
+                                    Decrypt And Replace
+                                </button>
+                                <button id="encryptASave">
+                                    Open Path To Decrypt And Save
+                                </button>
+                            </div>
+                        </div>
+                        <div class="sec3">
+                            <p>Enter Encryption Key</p>
+                            <p style="font-size: 10px; margin-bottom: 10px;">Enter 'Encryption Key' used for Encryption</p>
+                            <div class="input">
+                                <span class="material-symbols-rounded">
+                                    password
+                                </span>
+                                <input type="password" id="password" placeholder="Encryption Key">
+                            </div>
+                            <button id="finish">Finish</button>
+                        </div>
+                    </div>
+                    <div class="pg4">
+                        <div class="left">
+                            <p>Enter Text</p>
+                            <iframe src="" frameborder="0"></iframe>
+                        </div>
+                        <div class="mid">
+                            <div class="input" >
+                                <span class="material-symbols-rounded">
+                                    password
+                                </span>
+                                <input type="password" id="password" placeholder="Encryption Key">
+                            </div>
+                            <button id="EncTB">Encrypt</button>
+                            <button id="DecTB">Decrypt</button>
+                        </div>
+                        <div class="right">
+                            <p>Output Encrypted / Decrypted</p>
+                            <iframe src="" frameborder="0"></iframe>
+
+                        </div>
+                    </div>
+                    <div class="loader">
+                        <div class='circle'></div>
+                        <div class='circle'></div>
+                        <div class='circle'></div>
+                        <div class='circle'></div>
+                        <div class='circle'></div>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="pickerBlocker">
+        <div class="picker">
+            <div style="margin-bottom: 20px;">
+                <h1>Your Recents</h1>
+                <span style="margin-top: -30px; margin-right: -10px;" id="closePicker" class="material-symbols-rounded">
+                    close
+                </span>
+            </div>
+        </div>
+    </div>
+    <script src="./indexSrc/index.js"></script>
+</body>
+
+</html>

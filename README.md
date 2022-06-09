@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Vigneshkumar212/clogstenFileEncrypter/main/icon.png" width="150" title="Icon">
+</p>
+
 # Clogsten File Encrypter
 
 Clogsten File Encrypter is an file encrypter which uses [aes-265-encryption (Wikipedia)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).

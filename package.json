@@ -8,7 +8,7 @@
     "electron-updater": "^6.1.7"
   },
   "devDependencies": {
-    "electron": "^28.1.0",
+    "electron": "^29.1.0",
     "electron-builder": "^24.9.1"
   },
   "scripts": {

@@ -4,12 +4,12 @@
   "description": "Encrypt File With Password",
   "main": "main.js",
   "dependencies": {
-    "electron-log": "^5.1.7",
+    "electron-log": "^5.2.2",
     "electron-updater": "^6.1.8"
   },
   "devDependencies": {
-    "electron": "^31.4.0",
-    "electron-builder": "^25.1.8"
+    "electron": "^33.2.0",
+    "electron-builder": "^24.9.1"
   },
   "scripts": {
     "dist": "electron-builder --win --x64",

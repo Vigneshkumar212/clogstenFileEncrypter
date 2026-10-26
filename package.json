@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "electron": "^44.9.0",
-    "electron-builder": "^26.15.3"
+    "electron-builder": "^26.18.0"
   },
   "scripts": {
     "dist": "electron-builder --win --x64",
